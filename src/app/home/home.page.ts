@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PhotoService } from '../services/photo.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  currentImage: any;
 
+  constructor(public photoService: PhotoService) { }
+
+  ngOnInit() {
+    this.photoService.loadSaved();
+  }
+  
 }
+
